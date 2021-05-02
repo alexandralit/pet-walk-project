@@ -1,0 +1,99 @@
+.edit {
+    margin: 58px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.edit .goBack {
+    text-align: left;
+    background-color: transparent;
+    margin-bottom: 24px;
+}
+
+.edit .goBack img {
+    width: 20px;
+}
+
+.edit h2 {
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000001;
+    text-shadow: 0px 2px 80px #FFFFFF;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.edit .form p,
+.edit .type p {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #77787B;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.edit .form input[type="text"],
+.edit input[type="date"] {
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 8px 16px;
+    width: calc(100% - 32px);
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.edit .form input[type="text"]::placeholder,
+.edit input[type="date"]::placeholder {
+    font-size: 16px;
+    line-height: 19px;
+    color: #111212;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.edit .form button {
+    background: #6EA8FF;
+    box-shadow: inset 10px 10px 24px rgba(255, 255, 255, 0.25);
+    border-radius: 26.5px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    padding: 17px 80px;
+    color: #FFFFFF;
+    margin-top: 40px;
+}
+
+.edit .form button:nth-child(7) {
+    margin-right: 20px;
+}
+
+.edit button:hover,
+.edit button:active {
+    transition: all 0.7s ease-in-out;
+    background: #6ea8ffb2;
+}
+
+.inputWrapper {
+    width: 100%;
+    position: relative;
+    margin: 5px 0;
+    text-align: center;
+
+    
+}
+/*
+@media (max-width: 500px) {
+    .addPet {
+        flex-direction: row;
+    }
+}*/

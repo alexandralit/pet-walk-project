@@ -1,0 +1,53 @@
+.nav {
+    background: #D1FFFD;
+    box-shadow: 0px 8px 32px rgba(29, 108, 227, 0.16);
+    border-radius: 16px 16px 0px 0px;
+    padding: 18px 0 30px 0;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 0;
+}
+
+.home, 
+.pet,
+.world, 
+.account {
+    width: 29px;
+    height: 29px;
+    background-repeat: no-repeat;
+}
+
+.home {
+    background-image: url('./../../assets/img/House_icon.png');
+}
+
+.homeActiv {
+    background-image: url('./../../assets/img/House_icon_hover.png');
+}
+
+.pet {
+    background-image: url('./../../assets/img/Pet_icon.png');
+}
+
+.petActiv {
+    background-image: url('./../../assets/img/Pet_icon_hover.png');
+}
+
+.world {
+    background-image: url('./../../assets/img/World_icon.png');
+}
+
+.worldActiv {
+    background-image: url('./../../assets/img/World_icon_hover.png');
+}
+
+.account {
+    background-image: url('./../../assets/img/Account_icon.png');
+}
+
+.accountActiv {
+    background-image: url('./../../assets/img/Account_icon_hover.png');
+}

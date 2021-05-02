@@ -1,13 +1,91 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #F1F3F6;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.fa-plus {
+  background-color: white;
+  padding: 35px 37px;
+  border-radius: 50%;
+  font-weight: lighter;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#input_file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.radio_btn {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.radio_btn input[type=radio] {
+	display: none;
+}
+
+.radio_btn label {
+	display: inline-block;
+	cursor: pointer;
+	user-select: none;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 23px;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #111212;
+}
+
+.radio_btn label:nth-child(2) {
+  margin-right: 32px;
+}
+
+.radio_btn input[type=radio]:checked + label {
+	background: #1D6CE3;
+  box-shadow: inset 2px 2px 12px rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.radio_btn label:hover {
+  background: #1D6CE3;
+  box-shadow: inset 2px 2px 12px rgba(255, 255, 255, 0.25);
+	color: #FFFFFF;
+}
+
+#imagePet,
+#imageUser {
+  display: none;
+  width: 87px;
+  height: 87px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 43px);
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+}
+
+.fa-chevron-down,
+.fa-chevron-right {
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+section {
+  padding-bottom: 90px;
 }

@@ -1,0 +1,77 @@
+.petSelection {
+    margin: 58px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.petSelection .goBack {
+    text-align: left;
+    background-color: transparent;
+    margin-bottom: 24px;
+}
+
+.petSelection .goBack img {
+    width: 20px;
+}
+
+.petSelection h3 {
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pet {
+    padding: 10px;
+    text-align: center;
+}
+
+.pet img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #FFFFFF;
+}
+
+.activ {
+    opacity: 0.4;
+    transition: all 0.5s ease-in-out;
+}
+
+.pet p {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0F1010;
+    text-shadow: 0px 2px 80px #FFFFFF;
+}
+
+.btn {
+    display: block;
+    background: #6EA8FF;
+    box-shadow: inset 10px 10px 24px rgba(255, 255, 255, 0.25);
+    border-radius: 26.5px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    outline: none;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 17px 100px;
+    margin: 20px;
+}
+
+.btn:hover,
+.btn:active {
+    transition: all 0.7s ease-in-out;
+    background: #6ea8ffb2;
+}
