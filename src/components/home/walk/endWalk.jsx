@@ -6,11 +6,37 @@ import Store from './../../../context';
 function EndWalk() {
   const data = useContext(Store);
   const time = JSON.parse(localStorage.getItem('Time'));
-  let percentage = Math.round(100 * time / 1800);
+  /*let time = null;
   let counterWalks = 0;
 
+  const items = data.user[0].pets.filter(pet => pet.nowWalk === true);
+  items.map(item => {
+    item.walk.map(walk => {
+      if (walk.date === new Date().toLocaleDateString()) {
+        time += walk.time;
+      }
+    });
+  });*/
+
+  let percentage = Math.round(100 * time / 3600);
+
   const nowWalk = () => {
-    data.user[0].pets.map(pet => pet.nowWalk = false);
+    data.user[0].pets.map(pet => {
+      if (pet.nowWalk === true) {
+        pet.nowWalk = false;
+        let timeWalk = 0;
+        pet.walk.map(walk => {
+          if (walk.date === new Date().toLocaleDateString()) {
+            timeWalk += walk.time;
+          }
+        });
+        pet.stats.today = Math.round(100 * timeWalk / 3600);
+
+        if (pet.stats.today >= 0 && pet.stats.today < 32) pet.mood = 'Sad';
+        if (pet.stats.today >= 32 && pet.stats.today <= 66) pet.mood = 'Normal';
+        if (pet.stats.today > 66 && pet.stats.today <= 100) pet.mood = 'Happy';
+      }
+    });
     const filteredArr = data.users.filter(item => item.id !== data.user[0].id);
     data.setUsers([...filteredArr, ...data.user]);
     localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
@@ -46,17 +72,6 @@ function EndWalk() {
             <svg className={styles.progressBar}>
               <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
               <circle className={styles.progressBarCircleEnergy} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${100 - percentage}) / 100)`}/>
-            </svg>
-          </div>
-
-          <div className={styles.plan}>
-            <div>
-              <h3>Weekly objectives</h3>
-              <p>{14 - percentage} walks left</p>
-            </div>
-            <svg className={styles.progressBar}>
-              <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCircleObjectives} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${14 - counterWalks}) / 100)`}/>
             </svg>
           </div>
         </div>

@@ -27,8 +27,6 @@ function Pets() {
     
   }
 
-  console.log(data.user[0].pets.length);
-
   return (
       <section className={styles.pet}>
         <h2>My pets</h2>

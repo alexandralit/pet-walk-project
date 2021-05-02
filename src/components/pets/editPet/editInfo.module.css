@@ -60,8 +60,9 @@ button {
     font-family: 'Montserrat', sans-serif;
 }
 
-.edit .form button {
+.btn {
     background: #6EA8FF;
+    width: 60%;
     box-shadow: inset 10px 10px 24px rgba(255, 255, 255, 0.25);
     border-radius: 26.5px;
     font-weight: bold;
@@ -70,15 +71,11 @@ button {
     text-align: center;
     padding: 17px 80px;
     color: #FFFFFF;
-    margin-top: 40px;
+    margin: 30px auto 0 auto;
 }
 
-.edit .form button:nth-child(7) {
-    margin-right: 20px;
-}
-
-.edit button:hover,
-.edit button:active {
+.btn:hover,
+.btn:active {
     transition: all 0.7s ease-in-out;
     background: #6ea8ffb2;
 }

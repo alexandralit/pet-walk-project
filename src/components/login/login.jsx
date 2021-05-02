@@ -16,7 +16,7 @@ function Login() {
     let result = data.users.filter(user => user.email === inputEmail.current.value);
     if (result.length !== 0) {
       if (result[0].password === inputPassword.current.value) {
-        data.setCookie('login', { email: inputEmail.current.value, password: inputPassword.current.value }, { path: '/' });
+        data.setCookie('login', {id: result[0].id, email: result[0].email, password: result[0].password}, { path: '/' });
         history.push('/home');
       }
       else setError(true);
@@ -39,7 +39,7 @@ function Login() {
             <button>Login</button>
         </form>
 
-        <p>You have not an account ? <Link to="/registration">SingUp</Link></p>
+        <p>You have not an account ? <Link to="/registration">Signup</Link></p>
       </section>
     );
 }

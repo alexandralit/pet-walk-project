@@ -20,21 +20,25 @@ function EditInfo() {
 
   const saveInfo = (event) => {
     event.preventDefault();
-    data.setPets(prevState => prevState.filter(el => el.name !== name));
-    //console.log(inputName);
-    //console.log(data.pets);
-
-    //history.goBack();
+    //data.setPets(prevState => prevState.filter(el => el.name !== name));
+    
+    //history.push('mypets');
+    //console.log(newArrayPets);
   }
-  console.log(data.pets);
 
   const deleteInfo = (event) => {
-    event.preventDefault();
     //data.setPets([...data.pets, {user: data.id, id: data.pets.length, type, img, name: inputName.current.value, race: inputRace.current.value, birthday: inputBirthday.current.value}]);
     //localStorage.setItem('Pets', JSON.stringify([...data.pets, {user: data.id, id: data.pets.length, type, img, name: inputName.current.value, race: inputRace.current.value, birthday: inputBirthday.current.value}]));
-    data.setPets(prevState => prevState.filter(el => el.name !== name));
-
-    //history.goBack();
+    //const user = data.user[0].filter(pet => pet.name !== name);
+    data.user[0].map(item => {
+      item.pets.filter(pet => pet.id !== petInfo[0].id);
+    })
+    //data.user[0].pets.filter(pet => pet.id !== petInfo[0].id);
+    const filteredArr = data.users.filter(item => item.id !== data.user[0].id);
+    data.setUsers([...filteredArr, ...data.user]);
+    localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
+    //history.push('mypets');
+    //console.log(user);
   }
 
   const getImage = (event) => {
@@ -66,10 +70,10 @@ function EditInfo() {
             <p>Birthday</p>
             <input type="date" placeholder="01.01.2021" defaultValue={`${petInfo[0].birthday}`} min="2000-01-01" ref={inputBirthday} />
 
-            <button>Save</button>
+            <button className={styles.btn}>Save</button>
         </form>
 
-          <button onClick={deleteInfo}>Delete</button>
+          <button className={styles.btn} onClick={deleteInfo}>Delete</button>
       </section>
     );
 }

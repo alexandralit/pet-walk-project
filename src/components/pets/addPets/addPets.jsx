@@ -14,25 +14,24 @@ function AddPets() {
   const imgRef = useRef('');
   const history = useHistory();
 
-  //const user = data.users.filter(user => user.id === data.cookies.login.id)
-
   const getInfoPet = (event) => {
     event.preventDefault();
 
-    data.user[0].pets.push({id: data.user[0].pets.length, type, img, name: inputName.current.value, race: inputRace.current.value, birthday: inputBirthday.current.value, nowWalk: false, walk: []});
+    if (!img) {
+
+      setImg()
+    }
+
+    data.user[0].pets.push({id: data.user[0].pets.length, type, img, name: inputName.current.value, race: inputRace.current.value, birthday: inputBirthday.current.value, stats: {open: false, today: 0}, nowWalk: false, walk: [], mood: 'Sad'});
 
     const filteredArr = data.users.filter(item => item.id !== data.user[0].id);
     data.setUsers([...filteredArr, ...data.user]);
-
-    
-    //data.setPets([...data.pets, {user: data.id, id: data.pets.length, type, img, name: inputName.current.value, race: inputRace.current.value, birthday: inputBirthday.current.value}]);
     localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
 
     document.getElementById("imagePet").src = '#';
     document.getElementById("imagePet").style.display = 'none';
     inputName.current.value = inputRace.current.value = inputBirthday.current.value = '';
   }
-  //console.log(data.users);
 
   const changeType = (event) => {
     setType(event.target.value)

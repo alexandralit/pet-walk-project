@@ -22,16 +22,13 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['login']);
   let user = null;
 
-  if (cookies.login) {
-    user = users.filter(user => user.id === cookies.login.id);
-  } 
+  if (cookies.login) user = users.filter(user => user.id === cookies.login.id);
 
-  const [info, setInfo] = useState(JSON.parse(localStorage.getItem('Info')) || []);
   const [seconds, setSeconds] = useState(0);
 
   return (
     <BrowserRouter>
-      <Store.Provider value={{user, users, setUsers, id, setId, info, setInfo, seconds, setSeconds, cookies, setCookie, removeCookie}}>
+      <Store.Provider value={{user, users, setUsers, id, setId, seconds, setSeconds, cookies, setCookie, removeCookie}}>
 
         <Switch>
           <Route exact path='/'>

@@ -25,6 +25,15 @@ function PetSelection() {
     data.setUsers([...filteredArr, ...data.user]);
     localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
   }
+
+  const deleteStyle = () => {
+    data.user[0].pets.map(item => {
+      if (item.style) delete item.style;
+    });
+    const filteredArr = data.users.filter(item => item.id !== data.user[0].id);
+    data.setUsers([...filteredArr, ...data.user]);
+    localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
+  }
   
   return (
       <section className={styles.petSelection}>
@@ -41,7 +50,7 @@ function PetSelection() {
           ))}
         </div>
         
-        <Link to='/walk' className={styles.btn}>Start a walk</Link>
+        <Link to='/walk' onClick={deleteStyle} className={styles.btn}>Start a walk</Link>
       </section>
     );
 }

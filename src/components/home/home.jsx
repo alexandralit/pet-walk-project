@@ -8,13 +8,16 @@ function Home() {
   const data = useContext(Store);
   const history = useHistory();
   const [unblock, setUnblock] = useState(false);
-  const percentage = data.time;
-  if (data.time === 0) percentage = 0;
+  //const time = JSON.parse(localStorage.getItem('Time'));
+  //let percentage = Math.round(100 * time / 1800);
+  //let counterWalks = 0;\
+ 
+  console.log(data.cookies);
 
   const openStats = (pet) => {
     setUnblock(!unblock);
-
     const currentItem = data.user[0].pets.find(item => item.id === pet.id);
+    currentItem.stats.open = !currentItem.stats.open;
   }
 
   const nowWalk = () => {
@@ -45,51 +48,46 @@ function Home() {
               <p>{moment(pet.birthday).format('DD.MM.YYYY')}</p>
             </div>
             <div className={styles.mood}>
-              <div className={styles.points}><div></div><div></div><div></div></div>
-              <p>Happy</p>
+              {pet.mood === 'Sad' && 
+                <div className={styles.points1}><div></div><div></div><div></div></div>
+              }
+              {pet.mood === 'Normal' && 
+                <div className={styles.points2}><div></div><div></div><div></div></div>
+              }
+              {pet.mood === 'Happy' && 
+                <div className={styles.points3}><div></div><div></div><div></div></div>
+              }
+              <p>{pet.mood}</p>
             </div>
           </div>
 
-        <h3 onClick={() => openStats(pet)}>Stats {unblock ? <i className="fa fa-chevron-down"></i> : <i className="fa fa-chevron-right"></i>}</h3>
+        <h3 onClick={() => openStats(pet)}>Stats {pet.stats.open ? <i className="fa fa-chevron-down"></i> : <i className="fa fa-chevron-right"></i>}</h3>
 
-        {
-        unblock && 
+        {pet.stats.open && 
 
         <div className={styles.statsContainer}>
           <div className={styles.plan}>
             <div>
               <h3>Today’s plan</h3>
-              <p>{percentage}% accomplished</p>
+              <p>{pet.stats.today}% accomplished</p>
             </div>
             <svg className={styles.progressBar}>
               <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCirclePlan} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${percentage}) / 100)`}/>
+              <circle className={styles.progressBarCirclePlan} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${pet.stats.today}) / 100)`}/>
             </svg>
           </div>
 
           <div className={styles.plan}>
             <div>
               <h3>Energy available</h3>
-              <p>{percentage}% energy</p>
+              <p>{100 - pet.stats.today}% energy</p>
             </div>
             <svg className={styles.progressBar}>
               <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCircleEnergy} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${percentage}) / 100)`}/>
-            </svg>
-          </div>
-
-          <div className={styles.plan}>
-            <div>
-              <h3>Weekly objectives</h3>
-              <p>{percentage} walks left</p>
-            </div>
-            <svg className={styles.progressBar}>
-              <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCircleObjectives} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${percentage}) / 100)`}/>
+              <circle className={styles.progressBarCircleEnergy} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${100 - pet.stats.today}) / 100)`}/>
             </svg>
           </div>
         </div>
-
         }
         </div>
         ))}

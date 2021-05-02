@@ -90,20 +90,37 @@
     text-shadow: 0px 2px 80px #FFFFFF;
 }
 
-.points {
+.points1,
+.points2,
+.points3 {
     display: flex;
     justify-content: center;
 }
 
-.points div {
+.points1 div,
+.points2 div,
+.points3 div {
     width: 8px;
     height: 8px;
-    background: #1D6CE3;
     border-radius: 50%;
     border: 1px solid #FFFFFF;
     box-sizing: border-box;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
     margin: 3px;
+    background-color: #1d6ce354;
+}
+
+.points1 div:nth-child(1) {
+    background-color: #1D6CE3;
+}
+
+.points2 div:nth-child(1),
+.points2 div:nth-child(2) {
+    background-color: #1D6CE3;
+}
+
+.points3 div {
+    background-color: #1D6CE3;
 }
 
 .mood p {

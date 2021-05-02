@@ -30,15 +30,13 @@ function Walk() {
 
   const endWalk = () => {
     data.user[0].pets.map(pet => {
-      if (pet.nowWalk) pet.walk.push({date: new Date().toLocaleDateString(), weekDay: new Date().getDay(), time: data.seconds})
+      if (pet.nowWalk) pet.walk.push({date: new Date().toLocaleDateString(), weekDay: new Date().getDay(), time: data.seconds});
     });
-    console.log(data.user[0].pets);
+
     const filteredArr = data.users.filter(item => item.id !== data.user[0].id);
     data.setUsers([...filteredArr, ...data.user]);
     localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
-
-    localStorage.setItem('Time', JSON.parse(data.seconds));
-    data.setInfo([...data.info, {time: data.seconds}]);
+    localStorage.setItem('Time', JSON.stringify(data.seconds));
   }
 
   useEffect(() => {
@@ -60,7 +58,7 @@ function Walk() {
 
         <div className={styles.infoMap}>
           <h3>{hours} h {minutes} min {seconds} s</h3>
-          <p>Time</p>
+          <p>Walking time</p>
         </div>
 
         <Link to='/walk/endWalk' onClick={endWalk} className={styles.btn}>End the walk</Link>
