@@ -7,13 +7,12 @@
     justify-content: space-around;
     position: fixed;
     width: 100%;
+    max-width: 1024px;
     bottom: 0;
-    z-index: 0;
 }
 
 .home, 
 .pet,
-.world, 
 .account {
     width: 29px;
     height: 29px;
@@ -28,6 +27,11 @@
     background-image: url('./../../assets/img/House_icon_hover.png');
 }
 
+.home:hover {
+    background-image: url('./../../assets/img/House_icon_hover.png');
+    transition: all .4s linear;
+}
+
 .pet {
     background-image: url('./../../assets/img/Pet_icon.png');
 }
@@ -36,12 +40,9 @@
     background-image: url('./../../assets/img/Pet_icon_hover.png');
 }
 
-.world {
-    background-image: url('./../../assets/img/World_icon.png');
-}
-
-.worldActiv {
-    background-image: url('./../../assets/img/World_icon_hover.png');
+.pet:hover {
+    background-image: url('./../../assets/img/Pet_icon_hover.png');
+    transition: all .4s linear;
 }
 
 .account {
@@ -50,4 +51,22 @@
 
 .accountActiv {
     background-image: url('./../../assets/img/Account_icon_hover.png');
+}
+
+.account:hover {
+    background-image: url('./../../assets/img/Account_icon_hover.png');
+    transition: all .4s linear;
+}
+
+@media (max-width: 425px) {
+    .nav {
+        padding: 18px 0;
+    }
+    
+    .home, 
+    .pet,
+    .account {
+        width: 29px;
+        height: 29px;
+    }
 }

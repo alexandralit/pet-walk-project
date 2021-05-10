@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext, useEffect } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import styles from './login.module.css';
 import Store from './../../context';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ function Login() {
       <section className={styles.login}>
         <h2>Login</h2>
 
-        <form action="#" onSubmit={loginUser} className={styles.form}>
+        <form action="#" onSubmit={loginUser} className={styles.form} noValidate>
             <p>Email adress</p>
             <input type="email" placeholder="Email adress" required ref={inputEmail} />
 

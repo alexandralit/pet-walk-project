@@ -13,20 +13,29 @@ code {
     monospace;
 }
 
+#root {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
+
 .fa-plus {
   background-color: white;
   padding: 35px 37px;
   border-radius: 50%;
   font-weight: lighter;
   font-size: 16px;
-  text-align: center;
-  margin-bottom: 10px;
+
 }
 
 #input_file {
   opacity: 0;
   visibility: hidden;
   position: absolute;
+  width: 50%;
 }
 
 .radio_btn {
@@ -65,6 +74,7 @@ code {
   background: #1D6CE3;
   box-shadow: inset 2px 2px 12px rgba(255, 255, 255, 0.25);
 	color: #FFFFFF;
+  transition: all .3s linear;
 }
 
 #imagePet,
@@ -86,6 +96,19 @@ code {
   padding: 0 10px;
 }
 
-section {
-  padding-bottom: 90px;
+@media (max-width: 425px) {
+  .fa-plus {
+    padding: 30px 32px;
+  }
+
+  #imagePet,
+  #imageUser {
+    width: 84px;
+    height: 84px;
+  }
+
+  .radio_btn label {
+    font-size: 14px;
+  }
 }
+

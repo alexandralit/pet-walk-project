@@ -2,6 +2,7 @@
     margin: 58px 16px 0 16px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 90px;
 }
 
 .pet h2 {
@@ -10,17 +11,6 @@
     line-height: 39px;
     color: #000001;
     text-shadow: 0px 2px 80px #FFFFFF;
-    text-align: left;
-}
-
-.pet p {
-    font-weight: 800;
-    font-size: 25px;
-    line-height: 30px;
-    color: #000001;
-    text-shadow: 0px 2px 80px #FFFFFF;
-    margin: 16px 0;
-    text-align: left;
 }
 
 .pet .add {
@@ -42,7 +32,6 @@
 }
 
 .pet h3 {
-    text-align: left;
     font-weight: 800;
     font-size: 25px;
     line-height: 30px;
@@ -56,7 +45,6 @@
     font-size: 22px;
     line-height: 24px;
     color: #1D6CE3;
-    text-align: left;
     margin-top: 20px;
 }
 
@@ -71,6 +59,10 @@
     border-radius: 8px;
     padding: 8px;
     margin: 16px 0;
+}
+
+.petContainer .photo {
+    margin: 0 auto;
 }
 
 .petContainer .photo img {
@@ -104,4 +96,35 @@
     border-radius: 4px;
     line-height: 19px;
     text-align: center;
+}
+
+@media (max-width: 425px) {
+    .pet h2 {
+        font-size: 30px;
+    }
+
+    .pet .add {
+        padding: 27px;
+    }
+
+    .pet h3 {
+        font-size: 23px;
+    }
+    
+    .pet .text {
+        font-size: 18px;
+    }
+
+    .petContainer .photo img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .petContainer p {
+        font-size: 10px;
+    }
+
+    .petContainer h4 {
+        font-size: 16px;
+    }
 }

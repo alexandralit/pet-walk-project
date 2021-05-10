@@ -2,6 +2,7 @@
     margin: 58px 16px 0 16px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 90px;
 }
 
 .petSelection .goBack {
@@ -41,7 +42,7 @@
     border: 2px solid #FFFFFF;
 }
 
-.pet p {
+.pet h4 {
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -61,12 +62,42 @@
     outline: none;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 17px 100px;
-    margin: 20px;
+    padding: 17px 0;
+    margin: 20px 10%;
 }
 
 .btn:hover,
 .btn:active {
     transition: all 0.7s ease-in-out;
     background: #6ea8ffb2;
+}
+
+.error {
+    color: #1F6EE3;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: left;
+    transition: all 1s linear;
+}
+
+@media (max-width: 425px) {
+    .petSelection h3 {
+        font-size: 23px;
+    }
+
+    .pet img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .pet h4 {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 17px 20%;
+    }
 }

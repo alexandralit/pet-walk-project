@@ -2,6 +2,7 @@
     margin: 58px 16px 0 16px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 90px;
 }
 .home h2,
 .home h3 {
@@ -22,9 +23,15 @@
     margin-bottom: 8px;
 }
 
+.home h3:last-child:hover {
+    color: #1D6CE3;
+    cursor: pointer;
+    transition: color .5s linear;
+}
+
 .home .text {
     font-weight: 700;
-    font-size: 22px;
+    font-size: 21px;
     line-height: 24px;
     color: #1D6CE3;
     margin-top: 10px;
@@ -42,14 +49,14 @@
     outline: none;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 17px 100px;
-    margin: 20px;
+    padding: 17px 0;
+    margin: 20px 10%;
 }
 
 .home .btn:hover,
 .home .btn:active {
-    transition: all 0.7s ease-in-out;
-    background: #6ea8ffb2;
+    background-color: #6ea8ffb2;
+    transition: all 0.7s linear;
 }
 
 .petContainer {
@@ -63,6 +70,12 @@
     border-radius: 8px;
     padding: 8px;
     margin: 16px 0;
+    cursor: pointer;
+}
+
+.petContainer:hover {
+    box-shadow: none;
+    transition: all 0.3s linear;
 }
 
 .petContainer img {
@@ -133,7 +146,23 @@
 
 .statsContainer {
     margin-bottom: 20px;
+    height: 100%;
+    animation-name: slideInDown;
+    animation-duration: .3s;
+    animation-fill-mode: both;
 }
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20%);
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
 
 .statsContainer .plan {
     display: grid;
@@ -165,6 +194,12 @@
     text-align: left;
 }
 
+.statsContainer img {
+    height: 50px;
+    padding: 15px 0;
+    margin: 0 auto;
+}
+
 .progressBar {
     width: 80px;
     height: 80px;
@@ -194,9 +229,52 @@
     stroke-dasharray: 126;
 }
 
-.progressBarCircleObjectives {
-    fill: transparent;
-    stroke: #D7A141;
-    stroke-width: 15;
-    stroke-dasharray: 126;
+@media (max-width: 425px) {
+    .home h2 {
+        font-size: 30px;
+    }
+    
+    .home h3 {
+        font-size: 21px;
+    }
+
+    .home .btn {
+        font-size: 14px;
+        padding: 17px 20%;
+    }
+
+    .petContainer p {
+        font-size: 10px;
+    }
+    
+    .petContainer h4 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .petContainer img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mood p {
+        font-size: 10px;
+    }
+
+    .points1 div,
+    .points2 div,
+    .points3 div {
+        width: 7px;
+        height: 7px;
+    }
+    
+    .statsContainer h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .statsContainer p {
+        font-size: 10px;
+        line-height: 12px;
+    }
 }

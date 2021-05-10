@@ -3,16 +3,13 @@ import { Link, useHistory } from 'react-router-dom';
 import Store from './../../context';
 import styles from './home.module.css';
 import moment from 'moment';
+import imgDoneBl from './../../assets/img/done_bl.png';
+import imgDone from './../../assets/img/done.png';
 
 function Home() {
   const data = useContext(Store);
   const history = useHistory();
   const [unblock, setUnblock] = useState(false);
-  //const time = JSON.parse(localStorage.getItem('Time'));
-  //let percentage = Math.round(100 * time / 1800);
-  //let counterWalks = 0;\
- 
-  console.log(data.cookies);
 
   const openStats = (pet) => {
     setUnblock(!unblock);
@@ -36,7 +33,7 @@ function Home() {
         <h2>Home</h2>
         <h3>Dashboard</h3>
 
-        {data.user[0].pets.length === 0 ? <h4 className={styles.text}>Add your pets</h4> : null}
+        {data.user[0].pets.length === 0 && <h4 className={styles.text}>Add your pets</h4>}
 
         {data.user[0].pets.map((pet, index) => (
         <div key={index}>
@@ -69,30 +66,35 @@ function Home() {
           <div className={styles.plan}>
             <div>
               <h3>Today’s plan</h3>
-              <p>{pet.stats.today}% accomplished</p>
+              <p>{pet.stats.today >= 100 ? pet.stats.today = 100 : pet.stats.today}% accomplished</p>
             </div>
-            <svg className={styles.progressBar}>
-              <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCirclePlan} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${pet.stats.today}) / 100)`}/>
-            </svg>
+            {pet.stats.today < 100 ? 
+              <svg className={styles.progressBar}>
+                <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
+                <circle className={styles.progressBarCirclePlan} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${pet.stats.today >= 100 ? pet.stats.today = 100 : pet.stats.today}) / 100)`}/>
+              </svg>
+            : <img src={imgDoneBl} alt='done' />}
           </div>
 
           <div className={styles.plan}>
             <div>
               <h3>Energy available</h3>
-              <p>{100 - pet.stats.today}% energy</p>
+              <p>{100 - (pet.stats.today >= 100 ? pet.stats.today = 100 : pet.stats.today)}% energy</p>
             </div>
-            <svg className={styles.progressBar}>
-              <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
-              <circle className={styles.progressBarCircleEnergy} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${100 - pet.stats.today}) / 100)`}/>
-            </svg>
+            {pet.stats.today < 100 ? 
+              <svg className={styles.progressBar}>
+                <circle className={styles.progressBarCircle} cx="40" cy="40" r="20"/>
+                <circle className={styles.progressBarCircleEnergy} cx="40" cy="40" r="20" strokeDashoffset={`calc(126 -  (126 * ${100 - (pet.stats.today >= 100 ? pet.stats.today = 100 : pet.stats.today)}) / 100)`}/>
+              </svg>
+              : <img src={imgDone} alt='done' />}
           </div>
         </div>
         }
         </div>
         ))}
 
-        <Link to='/walk' className={styles.btn} onClick={nowWalk}>Start a walk</Link>
+        {data.user[0].pets.length > 0 && <Link to='/walk' className={styles.btn} onClick={nowWalk}>Start a walk</Link>}
+        
       </section>
     );
 }
