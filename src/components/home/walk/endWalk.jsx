@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styles from './walk.module.css';
 import { Link } from 'react-router-dom';
 import Store from './../../../context';
+import defaultPet from './../../../assets/img/defaultPet.png';
 import imgDoneBl from './../../../assets/img/done_bl.png';
 import imgDone from './../../../assets/img/done.png';
 
@@ -40,7 +41,7 @@ function EndWalk() {
 
       <div className={styles.petContainer}>
         {data.user[0].pets.map((pet, index) => (
-          pet.nowWalk && <img src={pet.img} alt="pet" key={index} />
+          pet.nowWalk && <img src={pet.img} alt="pet" onError={event => event.target.src = defaultPet} key={index} />
         ))}
       </div>
 

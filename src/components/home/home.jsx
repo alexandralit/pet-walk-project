@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Store from './../../context';
 import styles from './home.module.css';
 import moment from 'moment';
+import defaultPet from './../../assets/img/defaultPet.png';
 import imgDoneBl from './../../assets/img/done_bl.png';
 import imgDone from './../../assets/img/done.png';
 
@@ -38,7 +39,7 @@ function Home() {
         {data.user[0].pets.map((pet, index) => (
         <div key={index}>
           <div className={styles.petContainer} onClick={petSelection}>
-            <img src={pet.img} alt="pet" />
+            <img src={pet.img} alt="pet" onError={event => event.target.src = defaultPet} />
             <div>
               <p>{pet.race}</p>
               <h4>{pet.name}</h4>

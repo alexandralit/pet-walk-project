@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Home from './components/home/home';
 import Nav from './components/nav/nav';
@@ -25,7 +25,7 @@ function App() {
   if (cookies.login) user = users.filter(user => user.id === cookies.login.id);
 
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Store.Provider value={{user, users, setUsers, cookies, setCookie, removeCookie}}>
 
         <Switch>
@@ -90,7 +90,7 @@ function App() {
         </Switch>
 
       </Store.Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Store from './../../context';
 import styles from './pets.module.css';
 import plus from './../../assets/img/plus.png';
+import defaultPet from './../../assets/img/defaultPet.png';
 import arrow from './../../assets/img/Arrow.png';
 import moment from 'moment';
 
@@ -21,7 +22,7 @@ function Pets() {
           <div key={index}>
             {pet.type === 'dog' && 
               <div className={styles.petContainer}>
-                <div className={styles.photo}><img src={pet.img} alt="pet" /></div>
+                <div className={styles.photo}><img src={pet.img} onError={event => event.target.src = defaultPet} alt="pet" /></div>
                 <div>
                   <p>{pet.race}</p>
                   <h4>{pet.name}</h4>
@@ -39,7 +40,7 @@ function Pets() {
           <div key={index}>
             {pet.type === 'cat' && 
               <div className={styles.petContainer}>
-                <div className={styles.photo}><img src={pet.img} alt="pet" /></div>
+                <div className={styles.photo}><img src={pet.img} onError={event => event.target.src = defaultPet} alt="pet" /></div>
                 <div>
                   <p>{pet.race}</p>
                   <h4>{pet.name}</h4>

@@ -99,7 +99,8 @@
     font-weight: bold;
 }
 
-.login p:last-child a:visited {
+.login p:last-child a:visited,
+.login p:last-child a:active {
     color: #1F6EE3;
 }
 

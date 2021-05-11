@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './signout.module.css';
 import Store from './../../../context';
+import defaultUser from './../../../assets/img/defaultUser.png';
 import arrow from './../../../assets/img/icon_arrow.png';
 
 function Signout() {
@@ -16,12 +17,12 @@ function Signout() {
 
   return (
       <section className={styles.signout}>
-        <button className={styles.goBack} onClick={() => history.goBack()}><img src={arrow} alt=""/></button>
+        <button className={styles.goBack} onClick={() => history.goBack()}><img src={arrow} alt="arrow"/></button>
         
         <h3>Profil</h3>
 
         <div className={styles.container}>
-          {data.user[0].img ? <img src={data.user[0].img} alt='person' /> 
+          {data.user[0].img ? <img src={data.user[0].img} onError={event => event.target.src = defaultUser} alt='person' /> 
             : <div className={styles.profilImg}><p>{name}</p></div>}
           <h4>{data.user[0].name}</h4>
         </div>

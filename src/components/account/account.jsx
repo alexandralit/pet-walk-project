@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './account.module.css';
 import Store from './../../context';
+import defaultUser from './../../assets/img/defaultUser.png';
 import { AreaChart, Area, YAxis, CartesianGrid, Tooltip, XAxis } from 'recharts';
 
 function Account() {
@@ -39,7 +40,7 @@ function Account() {
         <h3>Profil</h3>
 
         <div className={styles.container}>
-          {data.user[0].img ? <img src={data.user[0].img} alt='person' /> 
+          {data.user[0].img ? <img src={data.user[0].img} onError={event => event.target.src = defaultUser} alt='person' /> 
           : <div className={styles.profilImg}><p>{name}</p></div>}
           <h4>{data.user[0].name}</h4>
           <Link to='/account/signout' className={styles.btn}><div></div><div></div><div></div></Link>

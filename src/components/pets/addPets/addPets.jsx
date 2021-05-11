@@ -92,8 +92,10 @@ function AddPets() {
   }
 
   const getImage = (event) => {
-    setImg(URL.createObjectURL(event.target.files[0]));
-    imgRef.current.style.display = 'block';
+    if (event.target.files[0]) {
+      setImg(URL.createObjectURL(event.target.files[0]));
+      imgRef.current.style.display = 'block';
+    }
   }
   
   return (

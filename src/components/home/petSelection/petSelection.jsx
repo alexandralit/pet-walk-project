@@ -3,6 +3,7 @@ import styles from './petSelection.module.css';
 import Store from './../../../context';
 import arrow from './../../../assets/img/icon_arrow.png';
 import { Link, useHistory } from 'react-router-dom';
+import defaultPet from './../../../assets/img/defaultPet.png';
 
 function PetSelection() {
   const data = useContext(Store);
@@ -51,7 +52,7 @@ function PetSelection() {
         <div className={styles.container}>
           {data.user[0].pets.map((pet, index) => (
             <div key={index} className={styles.pet}>
-              <div onClick={() => selection(pet)} style={pet.style}><img src={pet.img} alt='pet'/></div>
+              <div onClick={() => selection(pet)} style={pet.style}><img src={pet.img} onError={event => event.target.src = defaultPet} alt='pet' /></div>
               <h4>{pet.name}</h4>
             </div>
           ))}

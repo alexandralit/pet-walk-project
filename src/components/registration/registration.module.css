@@ -94,7 +94,8 @@
     font-weight: bold;
 }
 
-.registration p:last-child a:visited {
+.registration p:last-child a:visited,
+.registration p:last-child a:active {
     color: #1F6EE3;
 }
 
