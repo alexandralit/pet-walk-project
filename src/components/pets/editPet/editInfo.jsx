@@ -85,17 +85,17 @@ function EditInfo() {
             <p>Name</p>
             <input type="text" placeholder="Name" defaultValue={`${petInfo.name}`} ref={inputName} />
 
-            {errorName && <h5 className={styles.error}>The pet name must contain at least 2 symbols.</h5>}
+            {errorName && <h5 className={styles.error}>The pet's name should have at least 2 symbols.</h5>}
 
             <p>Race</p>
             <input type="text" placeholder="Race" defaultValue={`${petInfo.race}`} ref={inputRace} />
 
-            {errorRace && <h5 className={styles.error}>The pet race must contain at least 2 symbols.</h5>}
+            {errorRace && <h5 className={styles.error}>The pet's race should have at least 2 symbols.</h5>}
 
             <p>Birthday</p>
             <input type="date" placeholder="01.01.2021" defaultValue={`${petInfo.birthday}`} min="2000-01-01" ref={inputBirthday} />
 
-            {errorBirthday && <h5 className={styles.error}>Wrong date selected.</h5>}
+            {errorBirthday && <h5 className={styles.error}>Date entered incorrectly.</h5>}
 
 
             <button className={styles.btn}>Save</button>

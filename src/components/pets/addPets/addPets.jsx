@@ -125,17 +125,17 @@ function AddPets() {
             <p>Name</p>
             <input type="text" placeholder="Name" minLength="2" required ref={inputName} />
 
-            {errorName && <h5 className={styles.error}>The pet name must contain at least 2 symbols.</h5>}
+            {errorName && <h5 className={styles.error}>The pet's name should have at least 2 symbols.</h5>}
 
             <p>Race</p>
             <input type="text" placeholder="Race" minLength="2" required ref={inputRace} />
 
-            {errorRace && <h5 className={styles.error}>The pet race must contain at least 2 symbols.</h5>}
+            {errorRace && <h5 className={styles.error}>The pet's race should have at least 2 symbols.</h5>}
 
             <p>Birthday</p>
             <input type="date" placeholder="01.01.2021" required min="2010-01-01" ref={inputBirthday} />
 
-            {errorBirthday && <h5 className={styles.error}>Wrong date selected.</h5>}
+            {errorBirthday && <h5 className={styles.error}>Date entered incorrectly.</h5>}
 
             <button>Add a pet</button>
         </form>

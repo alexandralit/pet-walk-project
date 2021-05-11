@@ -38,7 +38,7 @@ function EndWalk() {
     return () => {
       nowWalk();
     }
-  }, []);
+  });
 
   return (
       <section className={styles.walk}>

@@ -125,16 +125,37 @@
 
 .points1 div:nth-child(1) {
     background-color: #1D6CE3;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
 
 .points2 div:nth-child(1),
 .points2 div:nth-child(2) {
     background-color: #1D6CE3;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
 
 .points3 div {
     background-color: #1D6CE3;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+} 
 
 .mood p {
     font-size: 12px;
@@ -148,15 +169,14 @@
     margin-bottom: 20px;
     height: 100%;
     animation-name: slideInDown;
-    animation-duration: .3s;
+    animation-duration: 1s;
     animation-fill-mode: both;
 }
 
 @keyframes slideInDown {
     0% {
         opacity: 0;
-        transform: translateY(-20%);
-        visibility: visible;
+        transform: translateY(-30%);
     }
     100% {
         opacity: 1;
