@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './signout.module.css';
 import Store from './../../../context';
@@ -10,15 +10,9 @@ function Signout() {
   let name = data.user[0].name[0].toUpperCase();
   
   const exit = () => {
-    //data.removeCookie('login');
+    data.removeCookie('login');
     history.push('/');
   }
-
-  useEffect(() => {
-    return () => {
-      data.removeCookie('login');
-    }
-  });
 
   return (
       <section className={styles.signout}>

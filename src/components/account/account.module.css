@@ -49,6 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 15px 0;
 }
 
 .btn div {
@@ -56,6 +57,11 @@
     height: 5px;
     background-color: #77787B;
     border-radius: 50%;
+}
+
+.btn:hover div {
+    background-color: #6EA8FF;
+    transition: all 1s linear;
 }
 
 .btn div:not(:last-child) {

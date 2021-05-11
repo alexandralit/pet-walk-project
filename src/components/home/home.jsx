@@ -38,7 +38,7 @@ function Home() {
         {data.user[0].pets.map((pet, index) => (
         <div key={index}>
           <div className={styles.petContainer} onClick={petSelection}>
-            <img src={pet.img} alt="" />
+            <img src={pet.img} alt="pet" />
             <div>
               <p>{pet.race}</p>
               <h4>{pet.name}</h4>

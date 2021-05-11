@@ -82,6 +82,19 @@
     transition: all 1s linear;
 }
 
+.profilImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6EA8FF;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
 @media (max-width: 425px) {
     .petSelection h3 {
         font-size: 23px;

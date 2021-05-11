@@ -103,13 +103,31 @@
     height: 50px;
     padding: 15px 0;
     margin: 0 auto;
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-fill-mode: both;
 }
 
 .progressBar {
     width: 80px;
     height: 80px;
     margin: 0 auto;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+} 
 
 .progressBarCircle {
     box-shadow: inset 4px 4px 4px rgba(29, 108, 227, 0.16);

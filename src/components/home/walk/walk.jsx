@@ -7,12 +7,10 @@ function Walk() {
   const data = useContext(Store);
   const [seconds, setSeconds] = useState(0);
   const timer = useRef(null);
-
-  //let timer = null;
         
   useEffect(() => {
     timer.current = setInterval(() => {
-      setSeconds(seconds => seconds + 1);
+      setSeconds(seconds => seconds + 420);
     }, 1000);
   }, [timer]);
 
@@ -53,7 +51,7 @@ function Walk() {
 
         <div className={styles.petContainer}>
         {data.user[0].pets.map((pet, index) => (
-          pet.nowWalk && <img src={pet.img} alt="" key={index} />
+          pet.nowWalk && <img src={pet.img} alt="pet" key={index} />
         ))}
         </div>
 

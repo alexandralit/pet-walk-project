@@ -51,7 +51,7 @@ function PetSelection() {
         <div className={styles.container}>
           {data.user[0].pets.map((pet, index) => (
             <div key={index} className={styles.pet}>
-              <div onClick={() => selection(pet)} style={pet.style}><img src={pet.img} alt='' /></div>
+              <div onClick={() => selection(pet)} style={pet.style}><img src={pet.img} alt='pet'/></div>
               <h4>{pet.name}</h4>
             </div>
           ))}
