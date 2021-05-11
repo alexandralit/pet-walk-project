@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from './walk.module.css';
 import { Link } from 'react-router-dom';
 import Store from './../../../context';
@@ -33,6 +33,12 @@ function EndWalk() {
     data.setUsers([...filteredArr, ...data.user]);
     localStorage.setItem('Users', JSON.stringify([...filteredArr, ...data.user]));
   }
+
+  useEffect(() => {
+    return () => {
+      nowWalk();
+    }
+  }, []);
 
   return (
       <section className={styles.walk}>

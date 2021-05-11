@@ -52,6 +52,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .startPage img {
+        max-width: 80%;
+    }
+}
+
 @media (max-width: 425px) {
     .startPage img {
         max-width: 70%;
