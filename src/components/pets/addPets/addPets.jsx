@@ -24,7 +24,7 @@ function AddPets() {
     let cleanupFunction = false;
     async function fetchDataDog() {
       let response = await fetch('https://dog.ceo/api/breeds/image/random');
-      let result = await response.json()
+      let result = await response.json();
       if(!cleanupFunction) setRandomImgDog(result.message);
     }
 

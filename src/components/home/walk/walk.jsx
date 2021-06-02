@@ -11,7 +11,7 @@ function Walk() {
         
   useEffect(() => {
     timer.current = setInterval(() => {
-      setSeconds(seconds => seconds + 1);
+      setSeconds(seconds => seconds + 1000);
     }, 1000);
   }, [timer]);
 

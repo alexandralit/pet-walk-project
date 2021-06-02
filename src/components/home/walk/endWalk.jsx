@@ -5,6 +5,7 @@ import Store from './../../../context';
 import defaultPet from './../../../assets/img/defaultPet.png';
 import imgDoneBl from './../../../assets/img/done_bl.png';
 import imgDone from './../../../assets/img/done.png';
+import Realistic from './confetti';
 
 function EndWalk() {
   const data = useContext(Store);
@@ -42,7 +43,7 @@ function EndWalk() {
 
   return (
       <section className={styles.walk}>
-        {percentage >= 100 && <div className={styles.done}></div>}
+        {percentage >= 100 && <Realistic />}
        <h2>End walk</h2>
 
       <div className={styles.petContainer}>
